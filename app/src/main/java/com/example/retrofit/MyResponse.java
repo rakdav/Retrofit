@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public class MyResponse {
     private boolean error;
-    private ArrayList<DataModel> images;
+    private String message;
 }
