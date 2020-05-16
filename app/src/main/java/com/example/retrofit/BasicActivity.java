@@ -112,8 +112,8 @@ public class BasicActivity extends AppCompatActivity {
 
     private void uploadFile(Uri fileUri,String description)
     {
-     //   File file=new File(getRealPathFromUri(fileUri));
-        File file=new File(fileUri.toString());
+        File file=new File(getRealPathFromUri(fileUri));
+     //   File file=new File(fileUri.toString());
         RequestBody requestFile=RequestBody.create(MediaType.parse(getContentResolver().getType(fileUri)),file);
         RequestBody descBody=RequestBody.create(MediaType.parse("text/plain"),description);
         Gson gson=new GsonBuilder().setLenient().create();

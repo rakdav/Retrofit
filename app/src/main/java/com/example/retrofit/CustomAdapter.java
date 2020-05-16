@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder>
@@ -43,7 +45,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         ImageView imageView=holder.imageViewIcon;
         CardView cardView=holder.cardView;
         textViewVersion.setText(dataSet.get(position).getDesc());
-        imageView.setImageURI(Uri.parse(dataSet.get(position).getUri()));
+        Picasso.with(context).load(dataSet.get(position).getUri()).into(imageView);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,8 +77,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             super(itemView);
             this.cardView=itemView.findViewById(R.id.card_view);
             this.imageViewIcon=itemView.findViewById(R.id.imageview);
-            this.textViewName=itemView.findViewById(R.id.textviewName);
-            this.textViewVersion=itemView.findViewById(R.id.textviewVersion);
+            this.textViewName=itemView.findViewById(R.id.textviewdesc);
         }
     }
 }
