@@ -12,5 +12,5 @@ public interface Api
 
     @Multipart
     @POST("Api.php?apicall=upload")
-    Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile.jpg\"")RequestBody file,@Part("desc") RequestBody desc);
+    Call<MyResponse> uploadImage(@Part("image\"; filename=\"myfile.jpg\" ")RequestBody file,@Part("desc") RequestBody desc);
 }
