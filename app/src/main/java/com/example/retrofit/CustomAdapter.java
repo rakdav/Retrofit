@@ -41,11 +41,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         TextView textViewName=holder.textViewName;
-        TextView textViewVersion=holder.textViewVersion;
         ImageView imageView=holder.imageViewIcon;
         CardView cardView=holder.cardView;
-        textViewVersion.setText(dataSet.get(position).getDesc());
-        Picasso.with(context).load(dataSet.get(position).getUri()).into(imageView);
+        textViewName.setText(dataSet.get(position).getDesc());
+        String uri=dataSet.get(position).getUri();
+        Picasso.with(context).load(uri).into(imageView);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +70,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     {
         CardView cardView;
         TextView textViewName;
-        TextView textViewVersion;
         ImageView imageViewIcon;
 
         public MyViewHolder(@NonNull final View itemView) {
